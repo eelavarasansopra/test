@@ -35,6 +35,9 @@ public class SecurityConfig {
 	    // Configuring HttpSecurity
 	    @Bean
 	    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+
+
+			System.out.println("test");
 	        return http.csrf(csrf -> csrf.disable())
 	                .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/welcome", "/auth/addNewUser", "/auth/generateToken").permitAll())
 	                .authorizeHttpRequests(auth -> auth.requestMatchers("/auth/user/**","/auth/admin/**").authenticated())
